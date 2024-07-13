@@ -1,0 +1,89 @@
+/* Assignment 1 */
+
+$main: "school";
+$child: "box";
+$language: "en"; // English
+$gap: 20px;
+
+@if $language == "en" {
+  .#{$main} {
+    padding: #{$gap};
+    direction: ltr;
+    margin-left: #{$gap};
+  }
+  .#{$main} .#{$main}-#{child} {
+    padding: 10px;
+  }
+  .#{$main}:hover .#{$main}-#{child} {
+    background-color: #eee;
+  }
+} @else if $language == "ar" {
+  .#{$main} {
+    padding: #{$gap};
+    direction: rtl;
+    margin-right: #{$gap};
+  }
+  .#{$main} .#{$main}-#{child} {
+    padding: 10px;
+  }
+  .#{$main}:hover .#{$main}-#{child} {
+    background-color: #eee;
+  }
+} @else {
+  @error "This Direction Not Valid";
+}
+
+/* Assignment 2 */
+
+// SASS Code
+$main-color: red;
+$alt-color: blue;
+
+/* Theme Version: 1.0 */
+/* Website Theme Main Color Is: #{$main-color} */
+/* Website Theme Alternate Color Is: #{$alt-color} */
+
+/* Assignment 3 */
+
+$number: 1;
+
+// Larger Than 8
+@if $number > 8 {
+  .class {
+    color: blue;
+  }
+} @else if $number > 5 {
+  .class {
+    color: green;
+  }
+} @else {
+  .class {
+    color: red;
+  }
+}
+
+/* Assignment 4 */
+
+$number: 10;
+$color: red;
+$theme: light;
+
+@if $number > 5 && $color == "red" && $theme != "dark" {
+  .class {
+    color: #{$color};
+  }
+}
+
+/* Assignment 5 */
+
+$number: 10;
+
+.box {
+  @if $number == 10 {
+    background-color: #eee;
+    text-align: center;
+  } @else if $number == 9 {
+    background-color: #eee;
+  } @else if $number == 8 {
+  }
+}

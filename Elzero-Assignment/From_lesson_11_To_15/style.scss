@@ -1,0 +1,126 @@
+/* Assignment 1 */
+
+@mixin Arrow($Position) {
+  content: "";
+  position: absolute;
+  border: 20px solid;
+
+  @if $Position == "top" or $Position == "bottom" {
+    left: 50%;
+    transform: translateX(-50%);
+    #{$Position}: -40px;
+  } @else {
+    top: 50%;
+    transform: translateY(-50%);
+    #{$Position}: -40px;
+  }
+
+  @if $Position == "right" {
+    border-left-color: #f00;
+  } @else if $Position == "top" {
+    border-bottom-color: #f00;
+  } @else if $Position == "left" {
+    border-right-color: #f00;
+  } @else {
+    border-top-color: #f00;
+  }
+}
+
+.element {
+  &::before {
+    @include Arrow("bottom");
+  }
+}
+
+/* Assignment 2 */
+
+$grid-System: 16;
+
+@for $i from 1 through $grid-System {
+  .col-#{$i} {
+    width: percentage($i / $grid-System);
+  }
+}
+
+/* Assignment 3 */
+
+$names: "books" 20px red 18, "games" 30px green 18, "dvds" 20px blue;
+
+@each $name, $padding, $color, $fontSize in $names {
+  .#{$name} {
+    padding: $padding;
+    border: ($padding / 10) solid $color;
+    color: #444;
+    font-size: if($fontSize, $fontSize, 16px);
+  }
+}
+
+/* Assignment 4 */
+
+$init: 1;
+
+@while $init < 6 {
+  .circle-#{$init * 100} {
+    $wid: $init * 100px;
+    width: $wid;
+    height: $init * 100px;
+    border-radius: $wid / 2;
+  }
+  $init: $init + 1;
+}
+
+/* Assignment 5 */
+
+$init: 1;
+
+@for $i from 1 through 5 {
+  .circle-#{$init * 100} {
+    $wid: $init * 100px;
+    width: $wid;
+    height: $init * 100px;
+    border-radius: $wid / 2;
+  }
+  $init: $init + 1;
+}
+
+/* Assignment 6 */
+
+@mixin placeholder {
+  &.placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &::-ms-input-placeholder {
+    @content;
+  }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}
+
+textarea {
+  @include placeholder {
+    color: #444;
+  }
+}
+
+/* Assignment 7 */
+
+@mixin flex-center($wid: 400px) {
+  width: if($wid, $wid, 400px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-one {
+  @include flex-center(400px);
+}
+.box-one {
+  @include flex-center;
+}

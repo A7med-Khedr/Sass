@@ -1,0 +1,169 @@
+/* Assignment 1 */
+.content {
+  > .box {
+    padding: 15px;
+    > .title {
+      font: {
+        size: 18px;
+      }
+    }
+  }
+  .cat {
+    padding: 15px;
+  }
+  &.premium {
+    &::before {
+      content: "premium Box";
+    }
+    &:hover {
+      background-color: #eee;
+    }
+  }
+}
+
+/* Assignment 2 */
+
+.class > {
+  .child {
+    padding: 10px;
+  }
+}
+.class {
+  > .child {
+    padding: 10px;
+  }
+}
+.class {
+  > {
+    .child {
+      padding: 10px;
+    }
+  }
+}
+
+/* Assignment 3 */
+
+.class {
+  font: {
+    size: 20px;
+    weight: bold;
+  }
+}
+
+/* Assignment 4 */
+
+.parent {
+  & + .sibling {
+    // Parent And Next Element Call ( sibling )
+    margin: auto {
+      // Margin Right And Left ( Auto )
+      top: 10px; // And Top Equal 10px
+    }
+    & ~ .last {
+      // Parent And Sibling For Next Element ( sibling )
+      padding: 10px;
+    }
+  }
+}
+
+/* Assignment 5 */
+
+.widget,
+.my-class {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.main-border,
+.my-class {
+  border: 1px solid #ccc;
+}
+
+.my-class {
+  font-weight: bold;
+  margin: 20px auto;
+}
+
+/* Assignment 6 */
+
+%widget {
+  background-color: white;
+  padding: 20px;
+}
+%main-border {
+  border: 1px solid #ccc;
+}
+.my-class {
+  font-weight: bold;
+  margin: 20px auto;
+}
+
+.my-class {
+  @extend %widget;
+}
+.my-class {
+  @extend %main-border;
+}
+
+/* Assignment 7 */
+
+.box {
+  h2,
+  p {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  .box {
+    h2,
+    p {
+      font-size: 16px;
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+/* Assignment 8 */
+
+$red: #e91e63;
+$green: #009688;
+
+$link-color: $red;
+$link-hover: $green;
+
+.box a {
+  color: $link-color;
+  &:hover {
+    color: $link-hover;
+  }
+}
+
+/* Assignment 9 */
+
+/*
+
+@use "./Helpers/functions";
+@use "./Helpers/vars";
+
+@use "./Layout/header";
+@use "./Layout/footer";
+
+*/
+
+/* Assignment 10 */
+
+$main-name: "box";
+$hold: "holder";
+
+.#{$main-name} {
+  font-size: 20px;
+}
+.#{$main-name}-#{$hold} {
+  width: 1000px;
+}
+.#{$main-name}-#{$hold}-content {
+  margin: auto;
+}
